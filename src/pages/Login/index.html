@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../css/Login/style.css">
+    <title>ManageX - Login</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">ManageX</div>
+        <div class="subtitle">Entre com sua conta para continuar</div>
+
+        <form>
+            <div>
+                <label for="email">E-mail</label>
+                <input id="email" type="email" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div>
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn primary" id="btnLogin">Entrar</button>
+
+            <div class="options">
+                <label><input type="checkbox" style="accent-color: var(--accent);"> Lembrar-me</label>
+
+                <a href="../Reset/">Esqueci a senha</a>
+            </div>
+        </form>
+
+        <div class="divider">ou continue com</div>
+
+        <div class="socials">
+            <div class="social-btn"><i class="fa-brands fa-google"></i></div>
+            <div class="social-btn"><i class="fa-brands fa-facebook-f"></i></div>
+            <div class="social-btn"><i class="fa-brands fa-linkedin-in"></i></div>
+        </div>
+
+        <div class="subtitle" style="margin-top: 40px;">
+            Não tem conta? <a href="../Register/" style="color: var(--accent); text-decoration: none">Cadastre-se</a>
+        </div>
+    </div>
+</body>
+
+</html>

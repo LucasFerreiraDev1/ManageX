@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg: #0f1720;
+    --bg-secundary: rgba(255, 255, 255, 0.02);
+    --btn-secundary: rgba(255, 255, 255, 0.03);
+    --panel: #0b1220;
+    --table: rgba(255, 255, 255, 0.05);
+    --text-main: #e6eef8;
+    --text-light: #9aa4b2;
+    --text-btn: #041020;
+    --text-logo: #051019;
+    --accent: #56b6ff;
+    --accent-2: #6be3a6;
+    --glass: rgba(255, 255, 255, 0.03);
+    --radius: 12px;
+    --card-radius: 14px;
+    --shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+
+    --success: #6be3a6;
+    --warning: #f9d85e;
+    --error: #ff6b6b;
+
+    --bg-pending: rgba(255, 200, 0, 0.1);
+    --pending: #f9d85e;
+    --bg-in-progress: rgba(0, 180, 255, 0.1);
+    --in-progress: #56b6ff;
+    --bg-completed: rgba(0, 255, 100, 0.1);
+    --completed: #6be3a6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(180deg, var(--bg), #07101a);
+    color: var(--text-main);
+}
+
+ul {
+    list-style: none;
+}

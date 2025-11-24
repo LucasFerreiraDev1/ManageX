@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../css/Register/style.css">
+    <title>ManageX — Cadastro</title>
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="logo">ManageX</div>
+        <div class="subtitle">Crie sua conta e comece a organizar suas tarefas</div>
+
+        <form>
+            <div>
+                <label for="name">Nome completo</label>
+                <input id="name" type="text" placeholder="Seu nome" required>
+            </div>
+
+            <div>
+                <label for="email">E-mail</label>
+                <input id="email" type="email" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div>
+                <label for="password">Senha</label>
+                <input id="password" type="password" placeholder="Crie uma senha" required>
+            </div>
+
+            <div>
+                <label for="confirmPassword">Confirmar senha</label>
+                <input id="confirmPassword" type="password" placeholder="Confirme a senha" required>
+            </div>
+
+            <p class="terms">
+                Ao se cadastrar, você concorda com nossos
+                <a href="#">Termos de uso</a> e <a href="#">Política de privacidade</a>.
+            </p>
+
+            <button class="btn primary" type="submit" id="btnRegister">Cadastrar</button>
+
+        </form>
+
+        <div class="subtitle" style="margin-top: 20px;">
+            Já tem conta? <a href="../Login/" style="color: var(--accent); text-decoration: none">Entrar</a>
+        </div>
+
+    </div>
+</body>
+
+</html>

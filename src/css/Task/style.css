@@ -1,0 +1,508 @@
+@import url('../base.css');
+
+.app {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+    height: 100vh;
+    padding: 28px;
+    align-items: flex-start;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, var(--panel), rgb(10, 18, 28, 0.7));
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--text-logo);
+}
+
+.brand h1 {
+    font-size: 16px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav a:hover {
+    background: var(--glass);
+    color: var(--accent);
+}
+
+.nav a.active {
+    background: var(--glass);
+    color: var(--accent);
+    box-shadow: inset 0 0 0 1px rgba(86, 182, 255, 0.06);
+}
+
+.main {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.mobile-toggle {
+    display: none;
+    background: linear-gradient(90deg, var(--accent), #2aa6ff);
+    border: none;
+    color: var(--text-btn);
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(86, 182, 255, 0.3);
+}
+
+.mobile-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(86, 182, 255, 0.4);
+}
+
+.mobile-toggle:active {
+    transform: translateY(0);
+}
+
+.search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--panel);
+    padding: 10px;
+    border-radius: 12px;
+    gap: 10px;
+    box-shadow: 0 4px 14px rgba(2,6,23,0.3);
+}
+
+.search input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-size: 14px;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    color: var(--text-main);
+    transition: all .2s ease;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent), #2aa6ff);
+    color: var(--text-btn);
+    border: none;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 8px;
+    width: 100%;
+    margin: 0 auto;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding-right: 8px;
+    margin-right: -8px;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.board::-webkit-scrollbar {
+    width: 8px;
+}
+
+.board::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    margin: 4px 0;
+}
+
+.board::-webkit-scrollbar-thumb {
+    background-color: rgba(86, 182, 255, 0.2);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.board::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(86, 182, 255, 0.4);
+}
+
+.board {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(86, 182, 255, 0.2) rgba(255, 255, 255, 0.02);
+}
+
+.board::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(transparent, var(--bg));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.board::before {
+    content: '';
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(var(--bg), transparent);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.board.scrolled::before {
+    opacity: 1;
+}
+
+.task {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(3, 9, 18, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    width: 100%;
+}
+
+.task:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(3, 9, 18, 0.6);
+    border-color: rgba(86, 182, 255, 0.2);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.task .title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--text-main);
+    flex: 1;
+}
+
+.priority-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.priority-badge.high {
+    background-color: rgba(255, 100, 100, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
+.priority-badge.medium {
+    background-color: rgba(255, 200, 0, 0.2);
+    color: #ffc800;
+    border: 1px solid rgba(255, 200, 0, 0.3);
+}
+
+.priority-badge.low {
+    background-color: rgba(100, 200, 100, 0.2);
+    color: #64c864;
+    border: 1px solid rgba(100, 200, 100, 0.3);
+}
+
+.description {
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 12px;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.005));
+    margin-bottom: 16px;
+    color: var(--text-light);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.task .meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.meta-item i {
+    font-size: 12px;
+    color: var(--accent);
+}
+
+.footer-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.labels {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.label {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.label.project {
+    background-color: rgba(86, 182, 255, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(86, 182, 255, 0.2);
+}
+
+.label.priority {
+    background-color: rgba(107, 227, 166, 0.15);
+    color: var(--accent-2);
+    border: 1px solid rgba(107, 227, 166, 0.2);
+}
+
+.show-options {
+    background: linear-gradient(135deg, var(--accent), #2aa6ff);
+    border: none;
+    color: var(--text-btn);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(86, 182, 255, 0.3);
+}
+
+.show-options:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(86, 182, 255, 0.4);
+}
+
+.show-options.active i {
+    transform: rotate(180deg);
+}
+
+.options {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    animation: slideDown 0.3s ease;
+}
+
+.options.show {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.options-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.status-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.status-section label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.options .status-select {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    outline: none;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.options .status-select:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.options .status-select option {
+    background-color: var(--panel);
+    color: var(--text-main);
+}
+
+.options .status-select.pending {
+    background-color: var(--bg-pending);
+    color: var(--pending);
+    border-color: rgba(249, 216, 94, 0.3);
+}
+
+.options .status-select.in-progress {
+    background-color: var(--bg-in-progress);
+    color: var(--in-progress);
+    border-color: rgba(86, 182, 255, 0.3);
+}
+
+.options .status-select.completed {
+    background-color: var(--bg-completed);
+    color: var(--completed);
+    border-color: rgba(107, 227, 166, 0.3);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+    min-width: 100px;
+}
+
+.action-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.action-btn.edit:hover {
+    background: linear-gradient(135deg, rgba(86, 182, 255, 0.2), rgba(86, 182, 255, 0.1));
+    border-color: rgba(86, 182, 255, 0.3);
+    color: var(--accent);
+}
+
+.action-btn.duplicate:hover {
+    background: linear-gradient(135deg, rgba(107, 227, 166, 0.2), rgba(107, 227, 166, 0.1));
+    border-color: rgba(107, 227, 166, 0.3);
+    color: var(--accent-2);
+}
+
+.action-btn i {
+    font-size: 12px;
+}
+
+.text-light {
+    color: var(--text-light);
+}

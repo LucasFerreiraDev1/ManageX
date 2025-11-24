@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../css/Task/style.css">
+    <title>ManageX - Pendentes</title>
+</head>
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">MX</div>
+                <div>
+                    <h1>ManageX</h1>
+                    <div style="font-size: 12px;" class="text-light">Gerenciador profissional</div>
+                </div>
+            </div>
+
+            <nav class="nav" id="nav_dashboard">
+                <a href="../../../index.html"><i class="fa-solid fa-house"></i> Página Inicial</a>
+                <a href="../Pending/" class="active"><i class="fa-solid fa-clock"></i> Pendentes</a>
+                <a href="../Completed/"><i class="fa-solid fa-check-double"></i> Concluído</a>
+                <a href="../Settings/"><i class="fa-solid fa-gear"></i> Configurações</a>
+                <a id="logoff"><i class="fas fa-sign-out-alt"></i>Encerrar sessão</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <button class="mobile-toggle sidebar-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="search"">
+                    🔎
+                    <input type=" text" placeholder="Pesquisar tarefas, projetos ou colaboradores" />
+                </div>
+
+                <button class="mobile-toggle filters-toggle" aria-label="Toggle filters">
+                    <i class="fas fa-filter"></i>
+                </button>
+
+                <div class="filters">
+                    <button type="button" class="btn">Filtrar</button>
+                    <button type="button" class="btn">Ordenar</button>
+                    <button type="button" class="btn primary" onclick="location.href='../Newtask/'">+ Nova tarefa</button>
+                </div>
+            </div>
+
+            <section class="board" aria-label="Quadro de tarefas" id="board">
+                <article class="task" data-task-id="1">
+                    <div class="task-header">
+                        <div class="title">Redigir roteiro do vídeo institucional</div>
+                        <div class="priority-badge low">Alta</div>
+                    </div>
+
+                    <div class="description">
+                        Criar um roteiro completo para o vídeo institucional da empresa, incluindo narrativa, cenas principais e
+                        call-to-action. O vídeo deve ter duração de 2-3 minutos e transmitir os valores da marca.
+                    </div>
+
+                    <div class="meta">
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span>Lucas Ferreira</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>26/10/2025</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-tag"></i>
+                            <span>Marketing</span>
+                        </div>
+                    </div>
+
+                    <div class="footer-task">
+                        <div class="labels">
+                            <span class="label project">Roteiro</span>
+                            <span class="label priority">Médio</span>
+                        </div>
+
+                        <button class="show-options" aria-label="Mostrar opções">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+                    <div class="options">
+                        <div class="options-content">
+                            <div class="status-section">
+                                <label>Alterar Status:</label>
+                                <select name="status" class="status-select pending">
+                                    <option value="pending">🕒 Pendente</option>
+                                    <option value="in-progress">⏳ Em andamento</option>
+                                    <option value="completed">✅ Concluída</option>
+                                </select>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="action-btn edit">
+                                    <i class="fas fa-edit"></i>
+                                    Editar
+                                </button>
+                                <button class="action-btn duplicate">
+                                    <i class="fas fa-copy"></i>
+                                    Duplicar
+                                </button>
+                                <button class="action-btn delete">
+                                    <i class="fas fa-trash"></i>
+                                    Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+    <!-- Overlay para menu mobile -->
+    <div class="overlay" id="overlay"></div>
+</body>
+
+</html>

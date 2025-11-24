@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../css/Settings/style.css">
+    <title>ManageX - Configurações</title>
+</head>
+
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">MX</div>
+                <div>
+                    <h1>ManageX</h1>
+                    <div style="font-size: 12px;" class="text-light">Gerenciador profissional</div>
+                </div>
+            </div>
+
+            <nav class="nav" id="nav_dashboard">
+                <a href="../../../index.html"><i class="fa-solid fa-house"></i> Página Inicial</a>
+                <a href="../Pending/"><i class="fa-solid fa-clock"></i> Pendentes</a>
+                <a href="../Completed/"><i class="fa-solid fa-check-double"></i> Concluído</a>
+                <a href="../Settings/" class="active"><i class="fa-solid fa-gear"></i> Configurações</a>
+                <a id="logoff"><i class="fas fa-sign-out-alt"></i>Encerrar sessão</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="settings-container">
+                <div class="settings-header">
+                    <h1>⚙️ Configurações</h1>
+                    <p>Gerencie suas preferências e informações da conta</p>
+                </div>
+                
+                <div class="settings-content">
+                    <!-- Mensagem de status -->
+                    <div id="status-message" class="status-message"></div>
+                    
+                    <!-- Informações Pessoais -->
+                    <div class="settings-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-user"></i>
+                            Informações Pessoais
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label for="username" class="form-label">Nome do Usuário</label>
+                            <input type="text" id="username" class="form-input" placeholder="Digite seu nome completo">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="email@exemplo.com">
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-shield-alt"></i>
+                            Segurança
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label for="current-password" class="form-label">Senha Atual</label>
+                            <input type="password" id="current-password" class="form-input" placeholder="Digite sua senha atual">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="new-password" class="form-label">Nova Senha</label>
+                                <input type="password" id="new-password" class="form-input" placeholder="Digite a nova senha">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password" class="form-label">Confirmar Nova Senha</label>
+                                <input type="password" id="confirm-password" class="form-input" placeholder="Confirme a nova senha">
+                            </div>
+                        </div>
+                        
+                        <div class="password-requirements">
+                            <p>Requisitos da senha:</p>
+                            <ul>
+                                <li id="req-length" class="invalid">
+                                    <i class="fas fa-times"></i>
+                                    Pelo menos 8 caracteres
+                                </li>
+                                <li id="req-uppercase" class="invalid">
+                                    <i class="fas fa-times"></i>
+                                    Pelo menos 1 letra maiúscula
+                                </li>
+                                <li id="req-lowercase" class="invalid">
+                                    <i class="fas fa-times"></i>
+                                    Pelo menos 1 letra minúscula
+                                </li>
+                                <li id="req-number" class="invalid">
+                                    <i class="fas fa-times"></i>
+                                    Pelo menos 1 número
+                                </li>
+                                <li id="req-special" class="invalid">
+                                    <i class="fas fa-times"></i>
+                                    Pelo menos 1 caractere especial
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="section-title">
+                            <i class="fas fa-palette"></i>
+                            Aparência
+                        </h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Tema do Site</label>
+                            <div class="theme-selector">
+                                <div class="theme-option light" data-theme="light">
+                                    <i class="fas fa-sun"></i>
+                                    <span>Claro</span>
+                                </div>
+                                <div class="theme-option dark active" data-theme="dark">
+                                    <i class="fas fa-moon"></i>
+                                    <span>Escuro</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-btn" onclick="location.href = '../Pending/'">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </button>
+                        <button type="button" class="btn" id="save-btn">
+                            <i class="fas fa-save"></i>
+                            Salvar Alterações
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Overlay para menu mobile -->
+    <div class="overlay" id="overlay"></div>
+</body>
+
+</html>
