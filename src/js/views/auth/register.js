@@ -1,5 +1,5 @@
-import { notify, validateEmail, loading } from "../utils.js";
-import { Register } from "../models/Register.js";
+import { notify, validateEmail } from "../../utils.js";
+import { Register } from "../../models/Register.js";
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -42,19 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let teste = [
-            fieldName.value.toLowerCase(),
-            fieldEmail.value.toLowerCase(),
-            fieldPassword.value,
-            fieldConfirmPassword.value
-        ]
-
         let newRegister = new Register(
             fieldName.value.toLowerCase(),
             fieldEmail.value.toLowerCase(),
             fieldPassword.value
         );
-
         newRegister.register();
     });
 });

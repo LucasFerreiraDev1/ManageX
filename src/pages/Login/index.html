@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../css/Login/style.css">
     <title>ManageX - Login</title>
+    <script type="module">
+        import { sessionStart } from "../../js/views/auth/session.js";
+        sessionStart("auth");
+    </script>
 </head>
 
 <body>
@@ -25,7 +29,7 @@
                 <input type="password" id="password" placeholder="••••••••" required>
             </div>
 
-            <button type="submit" class="btn primary" id="btnLogin">Entrar</button>
+            <button type="button" class="btn primary" id="btnLogin">Entrar</button>
 
             <div class="options">
                 <label><input type="checkbox" style="accent-color: var(--accent);"> Lembrar-me</label>
@@ -46,6 +50,7 @@
             Não tem conta? <a href="../Register/" style="color: var(--accent); text-decoration: none">Cadastre-se</a>
         </div>
     </div>
+    <script src="../../js/views/auth/login.js" type="module" defer></script>
 </body>
 
 </html>

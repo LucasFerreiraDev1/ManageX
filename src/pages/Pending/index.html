@@ -8,6 +8,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../css/Task/style.css">
     <title>ManageX - Pendentes</title>
+    <script type="module">
+        import { sessionStart, closeSession } from "../../js/views/auth/session.js";
+        sessionStart("app");
+        document.querySelector('#logoff').addEventListener('click', closeSession);
+    </script>
 </head>
 <body>
     <div class="app">

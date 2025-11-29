@@ -9,6 +9,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../css/Settings/style.css">
     <title>ManageX - Configurações</title>
+    <script type="module" defer>
+        import { sessionStart, closeSession } from "../../js/views/auth/session.js";
+        sessionStart("app");
+        document.querySelector('#logoff').addEventListener('click', closeSession);
+    </script>
 </head>
 
 <body>
