@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         for(let field of fields) {
             if(field.element.value.length > 0) {
-                field.element.style.borderColor = '#ffffff0d';
+                field.element.style.borderColor = "#6be3a6";
             }
             if(field.element.value.trim() === '') {
                 notify('Atenção!', `Preencha o campo ${field.label}!`, 'warning');
