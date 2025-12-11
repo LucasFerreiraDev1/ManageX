@@ -232,6 +232,7 @@
     transition: all 0.3s ease;
     position: relative;
     width: 100%;
+    min-width: 300px;
 }
 
 .task:hover {
@@ -297,6 +298,7 @@
 
 .task .meta {
     display: flex;
+    justify-content: flex-start;
     gap: 16px;
     margin-bottom: 16px;
     flex-wrap: wrap;
@@ -315,41 +317,8 @@
     color: var(--accent);
 }
 
-.footer-task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.labels {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.label {
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.label.project {
-    background-color: rgba(86, 182, 255, 0.15);
-    color: var(--accent);
-    border: 1px solid rgba(86, 182, 255, 0.2);
-}
-
-.label.priority {
-    background-color: rgba(107, 227, 166, 0.15);
-    color: var(--accent-2);
-    border: 1px solid rgba(107, 227, 166, 0.2);
-}
-
 .show-options {
+    margin-left: auto;
     background: linear-gradient(135deg, var(--accent), #2aa6ff);
     border: none;
     color: var(--text-btn);
@@ -681,11 +650,6 @@
         align-items: flex-start;
         gap: 12px;
         padding-top: 8px;
-    }
-
-    .labels {
-        width: 100%;
-        justify-content: flex-start;
     }
 
     .show-options {

@@ -8,15 +8,16 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../css/Task/style.css">
     <title>ManageX - Pendentes</title>
-    <script type="module">
+    <script type="module" defer>
         import { sessionStart, closeSession } from "../../js/views/auth/session.js";
+        import { loadTask } from "../../js/views/loadTask.js";
         sessionStart("app");
         document.querySelector('#logoff').addEventListener('click', closeSession);
+        loadTask("pending");
     </script>
 </head>
 <body>
     <div class="app">
-        <!-- SIDEBAR -->
         <aside class="sidebar">
             <div class="brand">
                 <div class="logo">MX</div>
@@ -57,78 +58,14 @@
                 </div>
             </div>
 
-            <section class="board" aria-label="Quadro de tarefas" id="board">
-                <article class="task" data-task-id="1">
-                    <div class="task-header">
-                        <div class="title">Redigir roteiro do vídeo institucional</div>
-                        <div class="priority-badge low">Alta</div>
-                    </div>
-
-                    <div class="description">
-                        Criar um roteiro completo para o vídeo institucional da empresa, incluindo narrativa, cenas principais e
-                        call-to-action. O vídeo deve ter duração de 2-3 minutos e transmitir os valores da marca.
-                    </div>
-
-                    <div class="meta">
-                        <div class="meta-item">
-                            <i class="fas fa-user"></i>
-                            <span>Lucas Ferreira</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-calendar"></i>
-                            <span>26/10/2025</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-tag"></i>
-                            <span>Marketing</span>
-                        </div>
-                    </div>
-
-                    <div class="footer-task">
-                        <div class="labels">
-                            <span class="label project">Roteiro</span>
-                            <span class="label priority">Médio</span>
-                        </div>
-
-                        <button class="show-options" aria-label="Mostrar opções">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                    </div>
-
-                    <div class="options">
-                        <div class="options-content">
-                            <div class="status-section">
-                                <label>Alterar Status:</label>
-                                <select name="status" class="status-select pending">
-                                    <option value="pending">🕒 Pendente</option>
-                                    <option value="in-progress">⏳ Em andamento</option>
-                                    <option value="completed">✅ Concluída</option>
-                                </select>
-                            </div>
-
-                            <div class="action-buttons">
-                                <button class="action-btn edit">
-                                    <i class="fas fa-edit"></i>
-                                    Editar
-                                </button>
-                                <button class="action-btn duplicate">
-                                    <i class="fas fa-copy"></i>
-                                    Duplicar
-                                </button>
-                                <button class="action-btn delete">
-                                    <i class="fas fa-trash"></i>
-                                    Excluir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </section>
+            <section class="board" aria-label="Quadro de tarefas" id="board"></section>
         </main>
     </div>
-    <!-- Overlay para menu mobile -->
     <div class="overlay" id="overlay"></div>
+
+    <!-- Scripts -->
     <script src="../../js/main.js" defer></script>
+    <script src="../../js/views/taskEvents.js" type="module" defer></script>
 </body>
 
 </html>
