@@ -48,7 +48,7 @@ export class Task {
 
     loadTasks(status) {
         let listTasks = [];
-        for(const task of this.allTasks) {
+        for(let task of this.allTasks) {
             if(task.status === status && task.createdBy === this.getSession[0].email) {
                 listTasks.push(task);
             }
@@ -71,7 +71,18 @@ export class Task {
         }
     }
 
-    editTask(id) {
-        console.log(id);
+    // updateTask(id) {
+    //     console.log(id)
+    // }
+
+    // duplicateTask(id) {
+    //     console.log(id)
+    // }
+
+    deleteTask(id) {
+        this.allTasks = this.allTasks.filter(task => task.id !== Number(id));
+        this.tasks.setLocalStorage(this.allTasks);
+        loading('../../assets/loading.gif','Deletando tarefa...');
+        setTimeout(() => { location.reload() }, 1300);
     }
 }
