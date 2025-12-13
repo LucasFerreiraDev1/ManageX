@@ -81,18 +81,29 @@ export class Task {
             }
         }
         this.tasks.setLocalStorage(this.allTasks);
-        loading('../../assets/loading.gif','editando tarefa...');
-        setTimeout(() => { location.reload() }, 1300);
+        reloadPage('Atualizando tarefa...', 1300);
     }
 
     duplicateTask(id) {
-        console.log(id)
+        const taskDuplicate = this.allTasks.find(task => task.id === id);
+        if(!taskDuplicate) {
+            console.error('Tarefa não encontrada!');
+            return;
+        }
+        const duplicate = { ...taskDuplicate, id: this.allTasks.at(-1).id + 1, status: 'pending' };
+        this.allTasks.push(duplicate);
+        this.tasks.setLocalStorage(this.allTasks);
+        reloadPage('Duplicando tarefa...', 1000);
     }
 
     deleteTask(id) {
         this.allTasks = this.allTasks.filter(task => task.id !== Number(id));
         this.tasks.setLocalStorage(this.allTasks);
-        loading('../../assets/loading.gif','Deletando tarefa...');
-        setTimeout(() => { location.reload() }, 1300);
+        reloadPage('Deletando tarefa...', 1300);
     }
+}
+
+function reloadPage(desc, time) {
+    loading('../../assets/loading.gif', desc);
+    setTimeout(() => { location.reload() }, time);
 }
