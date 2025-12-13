@@ -1,7 +1,6 @@
 import { Task } from "../models/Task.js";
 
 let task = new Task();
-
 export function loadTask(typeTask) {
     let allTasks = task.loadTasks(typeTask);
     const board = document.getElementById('board');    
@@ -14,7 +13,6 @@ export function loadTask(typeTask) {
                 "Alta": 'high'
             }
             const classPriority = priorityMap[task.priority] || 'low';
-    
             board.innerHTML += 
             `
                 <article class="task" data-task-id="${task.id}">

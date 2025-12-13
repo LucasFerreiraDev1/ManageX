@@ -1,7 +1,6 @@
 import { BDLocalStorage } from "../../models/BDLocalStorage.js";
 
 const session = new BDLocalStorage('session');
-
 export function closeSession() {
     session.deleteSession();
     location.href = '../Login/';
@@ -10,7 +9,6 @@ export function closeSession() {
 export function sessionStart(page) {
     let getSession = session.getSession();
     let validateSession = getSession.find(s => s.status === true);
-
     switch(page) {
         case "app":
             if(!validateSession) {

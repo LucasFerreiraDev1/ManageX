@@ -2,7 +2,6 @@ import { notify, validateEmail } from "../../utils.js";
 import { Register } from "../../models/Register.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-
     const fieldName = document.querySelector('#name');
     const fieldEmail = document.querySelector('#email');
     const fieldPassword = document.querySelector('#password');
@@ -10,14 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#btnRegister').addEventListener('click', (event) => {
         event.preventDefault();
-
         const fields = [
             {element: fieldName, label: 'Nome'},
             {element: fieldEmail, label: 'E-mail'},
             {element: fieldPassword, label: 'Senha'},
             {element: fieldConfirmPassword, label: 'Confirmar Senha'}
         ];
-        
         for(let field of fields) {
             if(field.element.value.length > 0) {
                 field.element.style.borderColor = "#6be3a6";
@@ -28,20 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
         }
-
         if(!validateEmail(fieldEmail.value.toLowerCase())) {
             notify('Atenção!', 'E-mail inválido!', 'warning');
             fieldEmail.style.borderColor = 'red';
             return;
         }
-    
         if(fieldPassword.value !== fieldConfirmPassword.value) {
             notify('Algo deu errado!', 'As senhas deve ser Idênticas!', 'error');
             fieldPassword.style.borderColor = 'red';
             fieldConfirmPassword.style.borderColor = 'red';
             return;
         }
-
         let newRegister = new Register(
             fieldName.value.toLowerCase(),
             fieldEmail.value.toLowerCase(),

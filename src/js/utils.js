@@ -29,7 +29,7 @@ export function notify(notifyHeader, notifyBody, notifyStyle) {
         setTimeout(() => {
             notify.remove();
         }, 500);
-    }, 2000);
+    }, 2300);
 
     switch (notifyStyle) {
         case 'success':

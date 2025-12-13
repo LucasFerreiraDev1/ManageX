@@ -1,5 +1,4 @@
 export class BDLocalStorage {
-    
     constructor(key) {
         this.key = key
     }
@@ -10,7 +9,6 @@ export class BDLocalStorage {
     setLocalStorage(value) {
         localStorage.setItem(this.key, JSON.stringify(value));
     }
-    
 
     getSession() {
         return JSON.parse(localStorage.getItem(this.key) || '[]');

@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const dueDate = document.getElementById('dueDate');
     const priority = document.getElementById('priority');
 
-
     document.querySelector("#createTask").addEventListener('click', (event) => {
         event.preventDefault();
         const fields = [
@@ -42,6 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
             priority.value
         );
         newTask.createTask();
-
     });
 });

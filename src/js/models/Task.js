@@ -1,6 +1,5 @@
 import { BDLocalStorage } from "../models/BDLocalStorage.js";
 import { loading } from "../utils.js";
-
 export class Task {
     constructor(
         nameTask = '',
@@ -17,7 +16,6 @@ export class Task {
         this.dueDate = dueDate, // Data de Vencimento
         this.priority = priority,
         this.createDate = new Date(),
-
         this.tasks = new BDLocalStorage('tasks'),
         this.allTasks = this.tasks.getLocalStorage(),
         this.session = new BDLocalStorage('session'),
@@ -38,12 +36,10 @@ export class Task {
             status: 'pending',
             create_date: `${this.createDate.getFullYear()}-${this.createDate.getMonth()}-${this.createDate.getDate()}`
         };
-
         this.allTasks.push(newTask);
         this.tasks.setLocalStorage(this.allTasks);
-
         loading('../../assets/loading.gif','Criando tarefa...');
-        setTimeout(() => { location.href = '../Pending/' }, 2000);
+        setTimeout(() => { location.href = '../Pending/' }, 1300);
     }
 
     loadTasks(status) {
@@ -53,31 +49,45 @@ export class Task {
                 listTasks.push(task);
             }
         }
-
         if(listTasks.length > 0) {
             return listTasks;
         } else {
             switch(status) {
                 case 'pending':
                     return 'Não há tarefas pendentes';
-                    break;
-                case 'teste':
-                    console.log('teste funcionando!');
-                    break;
                 case 'completed':
                     return 'Não há tarefas concluídas';
-                    break;
             }
         }
     }
 
-    // updateTask(id) {
-    //     console.log(id)
-    // }
+    updateTask(id) {
+        for(let task of this.allTasks) {
+            if(task.id === Number(id)) {
+                return task;
+            }
+        }
+    }
 
-    // duplicateTask(id) {
-    //     console.log(id)
-    // }
+    editTask(id, newTask) {
+        for(let task of this.allTasks) {
+            if(id === task.id) {
+                task.nameTask = newTask.nameTask;
+                task.responsible = newTask.responsible;
+                task.nameProject = newTask.nameProject;
+                task.description = newTask.description;
+                task.dueDate = newTask.dueDate;
+                task.priority = newTask.priority;
+            }
+        }
+        this.tasks.setLocalStorage(this.allTasks);
+        loading('../../assets/loading.gif','editando tarefa...');
+        setTimeout(() => { location.reload() }, 1300);
+    }
+
+    duplicateTask(id) {
+        console.log(id)
+    }
 
     deleteTask(id) {
         this.allTasks = this.allTasks.filter(task => task.id !== Number(id));

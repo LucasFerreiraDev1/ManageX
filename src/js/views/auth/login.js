@@ -7,12 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('#btnLogin').addEventListener('click', (event) => {
         event.preventDefault();
-
         const fields = [
             { element: fieldEmail, label: 'Email' },
             { element: fieldPassword, label: 'Password' }
         ];
-
         for(let field of fields) {
             if(field.element.value.length > 0) {
                 field.element.style.borderColor = "#ffffff0d";
@@ -23,13 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
         }
-
         if(!validateEmail(fieldEmail.value.toLowerCase())) {
             notify('Atenção!', 'E-mail inválido!', 'warning');
             fieldEmail.style.borderColor = 'red';
             return;
         }
-
         let newLogin = new Login(
             fieldEmail.value,
             fieldPassword.value

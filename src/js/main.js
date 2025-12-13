@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // TOGGLE SIDEBAR
-  const sidebarToggle = document.querySelector('.sidebar-toggle'); // Botão menu
+    const sidebarToggle = document.querySelector('.sidebar-toggle'); // Botão menu
     const sidebar = document.querySelector('.sidebar'); // Sidebar
     const overlay = document.getElementById('overlay');
     const filtersToggle = document.querySelector('.filters-toggle'); // Botão filter
@@ -11,12 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.classList.toggle('show');
         overlay.classList.toggle('show');
     });
-
     filtersToggle?.addEventListener('click', () => {
         filters.classList.toggle('show');
         overlay.classList.toggle('show');
     });
-
     overlay?.addEventListener('click', () => {
         sidebar.classList.remove('show');
         filters.classList.remove('show');
@@ -27,11 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeAllOptions() {
         const allOptions = document.querySelectorAll('.options');
         const allButtons = document.querySelectorAll('.show-options');
-
         allOptions.forEach(option => {
             option.classList.remove('show');
         });
-
         allButtons.forEach(button => {
             button.classList.remove('active');
         });
@@ -41,14 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
     showOptionsButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             event.stopPropagation();
-
             const task = button.closest('.task');
             if (!task) return;
-
             const options = task.querySelector('.options');
             const isActive = button.classList.contains('active');
             closeAllOptions();
-
             if (!isActive) {
                 options.classList.add('show');
                 button.classList.add('active');
