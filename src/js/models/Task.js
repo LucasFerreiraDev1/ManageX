@@ -101,6 +101,29 @@ export class Task {
         this.tasks.setLocalStorage(this.allTasks);
         reloadPage('Deletando tarefa...', 1300);
     }
+
+    filterTasks(search) {
+        if(!search || search.trim() === '') {
+            return;
+        }
+        if(this.allTasks.length === 0) {
+            console.log("Nenhuma tarefa encontrada!");
+            return;
+        }
+        const searchLower = search.toLowerCase().trim();
+        const filteredTasks = this.allTasks.filter(task => {
+            if(task.createdBy == this.getSession[0].email) {
+                const matchName = task.nameTask?.toLowerCase().includes(searchLower);
+                const matchProject = task.nameProject?.toLowerCase().includes(searchLower);
+                const matchResponsible = task.responsible?.toLowerCase().includes(searchLower);
+                const matchDescription = task.description?.toLowerCase().includes(searchLower);
+
+                return matchName || matchProject || matchResponsible || matchDescription;
+            }
+        });
+        
+        return { filteredTasks: filteredTasks, search: search };
+    }
 }
 
 function reloadPage(desc, time) {

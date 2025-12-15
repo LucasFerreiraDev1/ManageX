@@ -44,13 +44,13 @@
 
                 <div class="search">
                     🔎
-                    <input type=" text" placeholder="Pesquisar tarefas, projetos ou colaboradores" />
+                    <input type="text" id="searchInput" placeholder="Pesquisar tarefas, projetos ou colaboradores" />
                 </div>
 
                 <button class="mobile-toggle filters-toggle" aria-label="Toggle filters"><i class="fas fa-filter"></i></button>
 
                 <div class="filters">
-                    <button type="button" class="btn">Filtrar</button>
+                    <button type="button" class="btn" id="filterTask">Filtrar</button>
                     <button onclick="location.href='../Newtask/'" type="button" class="btn primary">+ Nova tarefa</button>
                 </div>
             </div>
@@ -63,6 +63,7 @@
     <div class="overlay" id="overlay"></div>
     <script src="../../js/main.js" defer></script>
     <script src="../../js/views/taskEvents.js" type="module" defer></script>
+    <script src="../../js/views/filter.js" type="module" defer></script>
 </body>
 
 </html>
