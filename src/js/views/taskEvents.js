@@ -30,6 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    board.addEventListener("change", e => {
+        const selectStatus = e.target.closest("#status_select");
+        if(selectStatus) {
+            const getID = getTaskFromEvent(e);
+            task.updateStatus(getID.id, selectStatus.value);
+        }
+    });
+
     function getTaskFromEvent(e) {
         const cardTask = e.target.closest('.task');
         if(!cardTask) return null;
@@ -71,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector("#priority").value = taskData.priority || 'Baixa';
     }
 
+    // editar tarefa
     document.addEventListener('click', (event) => {
         if(event.target.id === 'updateTask' || event.target.closest('#updateTask')) {
             event.preventDefault();
@@ -112,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             task.editTask(id, newTask);
         }
 
+        // Fechar modal edição
         if(event.target.id === 'cancelTask' || event.target.closest('#cancelTask')){
             const modalEdit = document.getElementById('editTaskModal');
             if(modalEdit) {
@@ -119,5 +129,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-    
 });

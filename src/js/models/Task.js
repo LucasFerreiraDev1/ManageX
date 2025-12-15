@@ -124,6 +124,16 @@ export class Task {
         
         return { filteredTasks: filteredTasks, search: search };
     }
+
+    updateStatus(id, status) {
+        for(let task of this.allTasks) {
+            if(task.id === id) {
+                task.status = status;
+            }
+        }
+        this.tasks.setLocalStorage(this.allTasks);
+        reloadPage("Atualizando Status...", 900);
+    }
 }
 
 function reloadPage(desc, time) {

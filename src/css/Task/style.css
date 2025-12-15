@@ -461,11 +461,15 @@
     border-color: rgba(86, 182, 255, 0.3);
     color: var(--accent);
 }
-
 .action-btn.duplicate:hover {
     background: linear-gradient(135deg, rgba(107, 227, 166, 0.2), rgba(107, 227, 166, 0.1));
     border-color: rgba(107, 227, 166, 0.3);
     color: var(--accent-2);
+}
+.action-btn.delete:hover {
+    background: linear-gradient(135deg, rgba(255, 86, 86,0.2), rgba(255, 86, 86,0.1));
+    border-color: rgba(255, 86, 86,0.3);
+    color: rgb(255, 86, 86);
 }
 
 .action-btn i {

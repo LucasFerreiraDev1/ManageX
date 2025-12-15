@@ -46,7 +46,7 @@ export function loadTask(typeTask) {
                         <div class="options-content">
                             <div class="status-section">
                                 <label>Alterar Status:</label>
-                                <select name="status" class="status-select ${task.status}">
+                                <select name="status" id="status_select" class="status-select ${task.status}">
                                     <option value="pending" ${task.status === 'pending' ? 'selected' : ''}>🕒 Pendente</option>
                                     <option value="completed" ${task.status === 'completed' ? 'selected' : ''}>✅ Concluída</option>
                                 </select>
