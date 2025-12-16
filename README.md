@@ -44,9 +44,9 @@ cd ManageX
 
 ## 📸 Screenshots
 
-![Tela de Login](assets/screenshots/login.png)
-![Tela de Cadastro](assets/screenshots/cadastro.png)
-![Layout e Funcionalidades](assets/screenshots/layout.png)
+![Tela de Login](src/assets/screenshots/login.png)
+![Tela de Cadastro](src/assets/screenshots/cadastro.png)
+![Layout e Funcionalidades](src/assets/screenshots/layout.png)
 
 ## 🎯 Próximas Atualizações
 
